@@ -6,7 +6,6 @@ defmodule StatusBoard.PageController do
 
   def index(conn, _params) do
     status = Repo.all(Status)
-    Logger.debug "Status -> #{inspect status}"
     render conn, "index.html", status: status
   end
 end
