@@ -27,21 +27,21 @@ defmodule StatusBoard.WebhookControllerTest do
     res = StatusBoard.WebhookController.parse_cmd("blocked #admin fixing api packages limits")
     assert {:ok, cmd} = res
     assert cmd.status == :blocked
-    assert cmd.text == "#admin fixing api packages limits"
+    assert cmd.text == "fixing api packages limits"
   end
 
   test "parse wfh" do
     res = StatusBoard.WebhookController.parse_cmd("wfh #admin fixing api packages limits")
     assert {:ok, cmd} = res
     assert cmd.status == :wfh
-    assert cmd.text == "#admin fixing api packages limits"
+    assert cmd.text == "fixing api packages limits"
   end
 
   test "parse ooo" do
     res = StatusBoard.WebhookController.parse_cmd("ooo #admin fixing api packages limits")
     assert {:ok, cmd} = res
     assert cmd.status == :ooo
-    assert cmd.text == "#admin fixing api packages limits"
+    assert cmd.text == "fixing api packages limits"
   end
 
   test "parse non-matching status" do
@@ -49,5 +49,13 @@ defmodule StatusBoard.WebhookControllerTest do
     assert {:ok, cmd} = res
     assert cmd.status == :ok
     assert cmd.text == "foo #admin fixing api packages limits"
+  end
+
+  test "parse project" do
+    res = StatusBoard.WebhookController.parse_cmd("#admin fixing api")
+    assert {:ok, cmd} = res
+    assert cmd.status == :ok
+    assert cmd.project == "admin"
+    assert cmd.text == "fixing api"
   end
 end
