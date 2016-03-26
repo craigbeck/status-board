@@ -59,10 +59,16 @@ defmodule StatusBoard.WebhookController do
 
   def parse_status(cmd) do
     case cmd do
-      "wfh" <> " " <> text -> {:ok, %{status: :wfh, text: text}}
-      "blocked" <> " " <> text -> {:ok, %{status: :blocked, text: text}}
-      "ooo" <> " " <> text -> {:ok, %{status: :ooo, text: text}}
-      "idle" <> " " <> text -> {:ok, %{status: :idle, text: text}}
+      "wfh" <> " " <> text ->
+        {:ok, %{status: :wfh, text: text}}
+      "blocked" <> " " <> text ->
+        {:ok, %{status: :blocked, text: text}}
+      "ooo" <> " " <> text ->
+        {:ok, %{status: :ooo, text: text}}
+      "idle" <> " " <> text ->
+        {:ok, %{status: :idle, text: text}}
+      "ok" <> " " <> text ->
+        {:ok, %{status: :ok, text: text}}
       text -> {:ok, %{status: :ok, text: text}}
     end
   end
