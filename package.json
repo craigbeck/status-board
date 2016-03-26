@@ -1,5 +1,7 @@
 {
-  "repository": {
+  "repository": {},
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register test/js"
   },
   "dependencies": {
     "axios": "^0.9.1",
