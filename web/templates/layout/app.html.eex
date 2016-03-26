@@ -10,6 +10,43 @@
     <title>Zipwhip Engineering</title>
     <link href='https://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <style media="screen">
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #303642;
+      color: #ffcc00;
+    }
+
+    .status {
+      /*font-size: 48px;*/
+      display: table;
+    }
+    .status-item {
+      display: table-row;
+    }
+    .status-item > .cell {
+      display: table-cell;
+      padding: 12px;
+    }
+    .status-item > .cell.name {
+      padding-left: 0;
+      text-transform: capitalize;
+    }
+    .status-item > .cell.notes {
+      /*font-size: 24px;*/
+    }
+    .state {
+      color: green;
+      text-transform: uppercase;
+    }
+    .state.state-idle,
+    .state.state-ooo {
+      color: orange;
+    }
+    .state.state-blocked {
+      color: red;
+    }
+    </style>
   </head>
 
   <body>
