@@ -12,7 +12,7 @@ defmodule StatusBoard.WebhookController do
     else
       {:ok, cmd} = parse_cmd(text)
 
-      attrs = %{notes: cmd.text, project: cmd.project, notes: cmd.text}
+      attrs = %{notes: cmd.text, project: cmd.project, state: to_string(cmd.status)}
 
       result =
         case Repo.get_by(Status, slackId: user_id, active: true) do
