@@ -2,7 +2,7 @@ defmodule StatusBoard.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "rooms:*", StatusBoard.RoomChannel
+  channel "status:lobby", StatusBoard.StatusChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

@@ -3,17 +3,17 @@ defmodule StatusBoard.Status do
 
   schema "status" do
     field :user, :string
-    field :state, :string
-    field :project, :string
-    field :notes, :string
-    field :active, :boolean, default: false
+    field :state, :string, default: "idle"
+    field :project, :string, default: nil
+    field :notes, :string, default: nil
+    field :active, :boolean, default: true
     field :slackId, :string
 
     timestamps
   end
 
-  @required_fields ~w(user state project notes active slackId)
-  @optional_fields ~w()
+  @required_fields ~w(user slackId)
+  @optional_fields ~w(state project notes active)
 
   @doc """
   Creates a changeset based on the `model` and `params`.

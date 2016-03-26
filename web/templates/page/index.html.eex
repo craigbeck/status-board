@@ -1,7 +1,1 @@
-<div class="col-xs-12">
-  <%= for item <- @status do %>
-  <div class="status-item">
-    <pre><%= inspect item %></pre>
-  </div>
-  <% end %>
-</div>
+<div id="root"></div>

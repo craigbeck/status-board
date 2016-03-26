@@ -1,12 +1,13 @@
 defmodule StatusBoard.StatusController do
   use StatusBoard.Web, :controller
+  import Ecto.Query, only: [from: 2]
 
   alias StatusBoard.Status
 
   plug :scrub_params, "status" when action in [:create, :update]
 
   def index(conn, _params) do
-    status = Repo.all(Status)
+    status = Repo.all(from s in Status, where: s.active == true)
     render(conn, "index.json", status: status)
   end
 
