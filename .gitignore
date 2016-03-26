@@ -40,4 +40,8 @@ node_modules
 # Debug log from npm
 npm-debug.log
 
-priv/
+/priv/static/css
+/priv/static/js
+/priv/static/images
+/priv/static
+/rel
