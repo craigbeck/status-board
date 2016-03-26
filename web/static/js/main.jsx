@@ -31,7 +31,6 @@ channel.on("update", resp => {
     type: "UPDATE",
     payload: resp.status
   };
-  console.log("action", action);
   store.dispatch(action);
 });
 
